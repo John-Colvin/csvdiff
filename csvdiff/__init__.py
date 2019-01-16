@@ -123,8 +123,8 @@ class CSVType(click.ParamType):
               help='Separator to use between fields [default: comma]')
 @click.option('--ignore-columns', '-i', type=CSVType(),
               help='a comma seperated list of columns to ignore from the comparison')
-@click.option('--significance', type=int,
-              help='Ignore numeric changes less than this number of significant figures')
+@click.option('--significance', type=float,
+              help='A number x, numeric changes with a relative difference (around midpoint) less than 10^-x will be ignored')
 def csvdiff_cmd(index_columns, from_csv, to_csv, style=None, output=None,
                 sep=',', quiet=False, ignore_columns=None, significance=None):
     """

@@ -334,4 +334,4 @@ def _is_significant(change, significance):
     except ValueError:
         return True
 
-    return abs(a - b) > 10 ** (-significance)
+    return (2 * abs((a - b) / (a + b))) > (10 ** (-significance))
